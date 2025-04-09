@@ -2,6 +2,7 @@ import datetime as dt
 import os
 from nicegui import app, ui
 
+from counter import CounterGUI
 from timed_actions import TimedActionsGUI
 from timer import TimerGUI
 
@@ -23,6 +24,7 @@ def common_elements():
         "Home": home,
         "Timed Actions": timed_actions,
         "Timer": timer,
+        "Counter": counter,
     }
     with ui.header(elevated=True).style('background-color: #3874c8').classes('items-center justify-between'):
         for label, target in menu_items.items():
@@ -46,6 +48,12 @@ def timed_actions():
 def timer():
     common_elements()
     TimerGUI()
+
+
+@ui.page("/counter")
+def counter():
+    common_elements()
+    CounterGUI()
 
 
 def handle_shutdown():
