@@ -26,9 +26,11 @@ def common_elements():
         "Timer": timer,
         "Counter": counter,
     }
-    with ui.header(elevated=True).style('background-color: #3874c8').classes('items-center justify-between'):
+    with ui.header(elevated=True).style("background-color: #3874c8").classes(
+        "items-center justify-between"
+    ):
         for label, target in menu_items.items():
-            ui.link(label, target).classes(replace='text-lg text-white')
+            ui.link(label, target).classes(replace="text-lg text-white")
 
 
 @ui.page("/")
@@ -57,7 +59,7 @@ def counter():
 
 
 def handle_shutdown():
-    print(f'{dt.datetime.now().isoformat()} - Shutdown completed!')
+    print(f"{dt.datetime.now().isoformat()} - Shutdown completed!")
 
 
 if __name__ == "__main__":
@@ -67,7 +69,7 @@ if __name__ == "__main__":
         dark=True,
         title="Misc Tools",
         favicon="🛠️",
-        storage_secret=os.environ['STORAGE_SECRET'],
+        storage_secret=os.environ["STORAGE_SECRET"],
         reload=False,
-        port=int(os.getenv("PORT", 8080))
+        port=int(os.getenv("PORT", 8080)),
     )

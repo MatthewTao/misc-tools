@@ -19,12 +19,14 @@ class TimerGUI:
 
         with ui.card(align_items="center"):
             ui.input(label="Name")
-            self.timer = ui.timer(0.1, lambda: label.set_text(self.format_time()), active=False)
-            self.timer_label = label = ui.label('0.00')
+            self.timer = ui.timer(
+                0.1, lambda: label.set_text(self.format_time()), active=False
+            )
+            self.timer_label = label = ui.label("0.00")
 
             with ui.row():
-                ui.button('Start', on_click=self.start)
-                ui.button('Stop', on_click=self.stop)
+                ui.button("Start", on_click=self.start)
+                ui.button("Stop", on_click=self.stop)
 
     def start(self):
         self.start_time = time.time()
@@ -34,5 +36,4 @@ class TimerGUI:
         self.timer.active = False
 
     def format_time(self):
-        return f'{time.time() - self.start_time:.2f} seconds'
-
+        return f"{time.time() - self.start_time:.2f} seconds"
