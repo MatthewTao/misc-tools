@@ -27,7 +27,7 @@ def common_elements():
         "Counter": counter,
     }
     with ui.header(elevated=True).style("background-color: #3874c8").classes(
-        "items-center justify-between"
+        "items-center justify-center"
     ):
         for label, target in menu_items.items():
             ui.link(label, target).classes(replace="text-lg text-white")
