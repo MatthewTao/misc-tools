@@ -10,6 +10,14 @@ Small tool to convert between measurement units
 
 TSP_TO_ML = 4.929
 TBS_TO_ML = 14.787
+CUPS_TO_ML = 236.588236
+
+COOKING_VOLUME_MARKDOWN = """
+Here are some handy conversions:
+
+- 1 tablespoon = 3 teaspoons
+- 1 cup = 16 tablespoons
+"""
 
 
 class UnitConversionGUI:
@@ -27,6 +35,7 @@ class UnitConversionGUI:
             ui.label('inside the expansion')
 
         with ui.expansion('Cooking').classes('w-full'):
+            ui.markdown(content=COOKING_VOLUME_MARKDOWN)
             self._cooking_unit = ui.select(label="Unit", options=["cup", "tbs", "tsp"])
             self._cooking_input = ui.number("Value", on_change=self._calculate_cooking_unit)
             self._cooking_label = ui.label('inside the expansion')
@@ -44,6 +53,8 @@ class UnitConversionGUI:
             output_value = input_value * TSP_TO_ML
         elif input_unit == "tbs":
             output_value = input_value * TBS_TO_ML
+        elif input_unit == "cup":
+            output_value = input_value * CUPS_TO_ML
         else:
             output_value = None
 
