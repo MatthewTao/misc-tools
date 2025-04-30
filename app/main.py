@@ -15,14 +15,20 @@ This is a collection of random things that might be useful for day to day things
 
 def common_elements():
     menu_items = {
-        "Home": home,
         "Timed Actions": timed_actions,
         "Timer": timer,
         "Counter": counter,
     }
     with ui.header(elevated=True).style("background-color: #3874c8").classes(
-        "items-center justify-center"
+        "justify-left"
     ):
+        # Button to hide or show the drawer
+        ui.button(on_click=lambda: left_drawer.toggle(), icon='menu').props('flat color=white')
+        ui.link("Home", home).classes(replace="text-2xl text-white")
+
+    with ui.left_drawer() as left_drawer:
+        ui.link("Home", home).classes(replace="text-2xl text-white")
+        ui.separator()
         for label, target in menu_items.items():
             ui.link(label, target).classes(replace="text-lg text-white")
 
