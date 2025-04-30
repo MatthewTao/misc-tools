@@ -11,12 +11,6 @@ WELCOME_MARKDOWN = """
 
 This is a collection of random things that might be useful for day to day things.
 """
-TIMED_ACTIONS_MARKDOWN = """
-# Timed Actions
-
-This is a way to set timers for various timed actions, 
-rather than having to manage multiple alarms or timers.
-"""
 
 
 def common_elements():
@@ -42,8 +36,7 @@ def home():
 @ui.page("/timed_actions")
 def timed_actions():
     common_elements()
-    ui.markdown(content=TIMED_ACTIONS_MARKDOWN)
-    timed_actions_gui = TimedActionsGUI()
+    TimedActionsGUI()
 
 
 @ui.page("/timer")
