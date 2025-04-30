@@ -5,6 +5,7 @@ from nicegui import app, ui
 from counter import CounterGUI
 from timed_actions import TimedActionsGUI
 from timer import TimerGUI
+from unit_conversion import UnitConversionGUI
 
 WELCOME_MARKDOWN = """
 # Misc Tools
@@ -18,6 +19,7 @@ def common_elements():
         "Timed Actions": timed_actions,
         "Timer": timer,
         "Counter": counter,
+        "Units": unit_conversion,
     }
     with ui.header(elevated=True).style("background-color: #3874c8").classes(
         "justify-left"
@@ -55,6 +57,12 @@ def timer():
 def counter():
     common_elements()
     CounterGUI()
+
+
+@ui.page("/unit_conversion")
+def unit_conversion():
+    common_elements()
+    UnitConversionGUI()
 
 
 def handle_shutdown():
