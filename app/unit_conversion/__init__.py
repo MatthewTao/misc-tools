@@ -36,8 +36,8 @@ class UnitConversionGUI:
 
         with ui.expansion('Cooking').classes('w-full'):
             ui.markdown(content=COOKING_VOLUME_MARKDOWN)
-            self._cooking_unit = ui.select(label="Unit", options=["cup", "tbs", "tsp"])
-            self._cooking_input = ui.number("Value", on_change=self._calculate_cooking_unit)
+            self._cooking_unit = ui.select(label="Unit", options=["cup", "tbs", "tsp"]).classes("w-40")
+            self._cooking_input = ui.number("Value", on_change=self._calculate_cooking_unit).classes("w-40")
             self._cooking_label = ui.label('inside the expansion')
 
     def _calculate_temperature(self):
