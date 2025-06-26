@@ -25,7 +25,9 @@ def common_elements():
         "justify-left"
     ):
         # Button to hide or show the drawer
-        ui.button(on_click=lambda: left_drawer.toggle(), icon='menu').props('flat color=white')
+        ui.button(on_click=lambda: left_drawer.toggle(), icon="menu").props(
+            "flat color=white"
+        )
         ui.link("Home", home).classes(replace="text-2xl text-white")
 
     with ui.left_drawer() as left_drawer:

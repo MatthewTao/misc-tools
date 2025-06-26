@@ -24,21 +24,21 @@ class UnitConversionGUI:
     def __init__(self):
         ui.markdown(content=WELCOME_MARKDOWN)
 
-        with ui.expansion('Temperature').classes('w-full'):
-            self._input_temperature = ui.number("Temperature in °F", on_change=self._calculate_temperature)
-            self._temperature_celsius = ui.label('Input a Temperature above')
+        with ui.expansion("Temperature").classes("w-full"):
+            self._input_temperature = ui.number(
+                "Temperature in °F", on_change=self._calculate_temperature
+            )
+            self._temperature_celsius = ui.label("Input a Temperature above")
 
-        with ui.expansion('Volume').classes('w-full'):
-            ui.label('inside the expansion')
-
-        with ui.expansion('Weight').classes('w-full'):
-            ui.label('inside the expansion')
-
-        with ui.expansion('Cooking').classes('w-full'):
+        with ui.expansion("Cooking").classes("w-full"):
             ui.markdown(content=COOKING_VOLUME_MARKDOWN)
-            self._cooking_unit = ui.select(label="Unit", options=["cup", "tbs", "tsp"]).classes("w-40")
-            self._cooking_input = ui.number("Value", on_change=self._calculate_cooking_unit).classes("w-40")
-            self._cooking_label = ui.label('inside the expansion')
+            self._cooking_unit = ui.select(
+                label="Unit", options=["cup", "tbs", "tsp"]
+            ).classes("w-40")
+            self._cooking_input = ui.number(
+                "Value", on_change=self._calculate_cooking_unit
+            ).classes("w-40")
+            self._cooking_label = ui.label("Results: ")
 
     def _calculate_temperature(self):
         temp_f = self._input_temperature.value
@@ -59,4 +59,6 @@ class UnitConversionGUI:
             output_value = None
 
         if output_value:
-            self._cooking_label.set_text(f"{input_value} {input_unit} is {round(output_value, 1)} mL")
+            self._cooking_label.set_text(
+                f"{input_value} {input_unit} is {round(output_value, 1)} mL"
+            )

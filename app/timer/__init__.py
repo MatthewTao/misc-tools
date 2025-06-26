@@ -21,7 +21,9 @@ class TimerGUI:
         with ui.row().classes("w-full"):
             ui.label("Simple Timer").style("font-size: 200%; font-weight: 600")
             ui.space()  # hahaha feels hacky, try to use some sort of align maybe
-            ui.button(on_click=lambda: right_drawer.toggle(), icon='info').props('flat color=white')
+            ui.button(on_click=lambda: right_drawer.toggle(), icon="info").props(
+                "flat color=white"
+            )
 
         with ui.row().classes("w-full justify-center"):
             with ui.card(align_items="center"):
