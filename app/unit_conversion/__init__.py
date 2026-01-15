@@ -12,6 +12,11 @@ TSP_TO_ML = 4.929
 TBS_TO_ML = 14.787
 CUPS_TO_ML = 236.588236
 
+IN_TO_CM = 2.54
+FT_TO_CM = 30.48
+YD_TO_CM = 91.44
+MI_TO_CM = 160934
+
 COOKING_VOLUME_MARKDOWN = """
 Here are some handy conversions:
 
@@ -30,6 +35,15 @@ class UnitConversionGUI:
             )
             self._temperature_celsius = ui.label("Input a Temperature above")
 
+        with ui.expansion("Distance").classes("w-full"):
+            self._distance_unit = ui.select(
+                label="Unit", options=["in", "ft", "yd", "mi"]
+            ).classes("w-40")
+            self._distance_input = ui.number(
+                "Value", on_change=self._calculate_distance
+            ).classes("w-40")
+            self._distance_label = ui.label("Results: ")
+
         with ui.expansion("Cooking").classes("w-full"):
             ui.markdown(content=COOKING_VOLUME_MARKDOWN)
             self._cooking_unit = ui.select(
@@ -45,6 +59,25 @@ class UnitConversionGUI:
         if temp_f and isinstance(temp_f, (int, float)):
             temp_c = (temp_f - 32) * 5 / 9
             self._temperature_celsius.set_text(f"Temperature: {round(temp_c, 1)}°C")
+
+    def _calculate_distance(self):
+        input_value = self._distance_input.value
+        input_unit = self._distance_unit.value
+        if input_unit == "in":
+            output_value = input_value * IN_TO_CM
+        elif input_unit == "ft":
+            output_value = input_value * FT_TO_CM
+        elif input_unit == "yd":
+            output_value = input_value * YD_TO_CM
+        elif input_unit == "mi":
+            output_value = input_value * MI_TO_CM
+        else:
+            output_value = None
+
+        if output_value:
+            self._distance_label.set_text(
+                f"{input_value} {input_unit} is {round(output_value, 1)} cm"
+            )
 
     def _calculate_cooking_unit(self):
         input_value = self._cooking_input.value
