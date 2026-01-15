@@ -1,6 +1,6 @@
 services:
   nicegui:
-    image: zauberzeug/nicegui:2.13.0
+    image: zauberzeug/nicegui:3.5.0
     ports:
       - 8080:8080
     volumes:
