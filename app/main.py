@@ -3,6 +3,7 @@ import os
 from nicegui import app, ui
 
 from counter import CounterGUI
+from random_number_generator import RandomNumberGeneratorGUI
 from timed_actions import TimedActionsGUI
 from timer import TimerGUI
 from unit_conversion import UnitConversionGUI
@@ -20,6 +21,7 @@ def common_elements():
         "Timer": timer,
         "Counter": counter,
         "Units": unit_conversion,
+        "Random Number Generator": random_number_generator,
     }
     with ui.header(elevated=True).style("background-color: #3874c8").classes(
         "justify-left"
@@ -65,6 +67,12 @@ def counter():
 def unit_conversion():
     common_elements()
     UnitConversionGUI()
+
+
+@ui.page("/random_number_generator")
+def random_number_generator():
+    common_elements()
+    RandomNumberGeneratorGUI()
 
 
 def handle_shutdown():
