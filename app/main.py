@@ -5,7 +5,7 @@ from nicegui import app, ui
 from counter import CounterGUI
 from random_number_generator import RandomNumberGeneratorGUI
 from timed_actions import TimedActionsGUI
-from timer import TimerGUI
+from timer_ import TimerGUI
 from unit_conversion import UnitConversionGUI
 
 WELCOME_MARKDOWN = """

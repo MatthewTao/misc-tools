@@ -13,3 +13,6 @@ class TimedActionsGUI:
     def __init__(self):
         ui.markdown(content=TIMED_ACTIONS_MARKDOWN)
         ui.label("Maybe a way to set various timers in one spot")
+
+
+__all__ = ["TimedActionsGUI"]

@@ -95,3 +95,6 @@ class UnitConversionGUI:
             self._cooking_label.set_text(
                 f"{input_value} {input_unit} is {round(output_value, 1)} mL"
             )
+
+
+__all__ = ["UnitConversionGUI"]

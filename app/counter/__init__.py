@@ -51,3 +51,6 @@ class CounterGUI:
     def reset(self):
         self.count = 0
         self.update_label()
+
+
+__all__ = ["CounterGUI"]

@@ -73,3 +73,6 @@ class RandomNumberGeneratorGUI:
         self.min_input.value = 1
         self.max_input.value = 6
         self.result_label.set_text("Result will appear here")
+
+
+__all__ = ["RandomNumberGeneratorGUI"]

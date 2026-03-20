@@ -63,3 +63,6 @@ class TimerGUI:
 
         seconds = remainder
         return f"{int(hours):02}:{int(minutes):02}:{seconds:05.2f}"
+
+
+__all__ = ["TimerGUI"]
